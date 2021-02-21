@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { timer } from 'rxjs';
-//import { setInterval } from 'timers';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,10 @@ import { timer } from 'rxjs';
 export class AppComponent {
   title = 'jfm. ';
   counter:number = 0;
+
+  constructor(private http: HttpClient) {
+
+  }
 
   ngOnInit() {
     // const source$ = timer(1000,1000);
@@ -33,5 +37,9 @@ export class AppComponent {
 
     await this.delay(1000);
     a.title += 'tocker, ';
+
+    var s = await this.http.get('https://jsonplaceholder.typicode.com/todos/1').toPromise();
+    console.log(JSON.stringify(s));
+
   }
 }
