@@ -27,11 +27,11 @@ export class AppComponent {
   }
   
   async onTick(a:AppComponent) {
-    console.log('tick');
+    console.log('ticker');
     a.counter++;
     a.title += a.counter + ', ';
 
     await this.delay(1000);
-    a.title += 'tock, ';
+    a.title += 'tocker, ';
   }
 }
